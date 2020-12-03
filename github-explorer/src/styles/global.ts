@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-//mport background from '../assets/bg.svg';
+//import background from "../assets/bg.svg";
 
 export default createGlobalStyle`
 *{
