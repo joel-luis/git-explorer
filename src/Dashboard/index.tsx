@@ -33,40 +33,6 @@ const Dashboard: React.FC = () => {
             src="https://avatars2.githubusercontent.com/u/72585274?s=460&u=00d8532d63251b36aaab5f81fd1c7422603fa031&v=4"
             alt="Joel Luis"
           />
-
-          <div>
-            <strong>Joel Luis Rockseat</strong>
-            <p>Curso GoStack Botcamp</p>
-          </div>
-
-          <FiChevronRight size={20} />
-        </a>
-
-        <a href="teste">
-          <img
-            src="https://avatars2.githubusercontent.com/u/72585274?s=460&u=00d8532d63251b36aaab5f81fd1c7422603fa031&v=4"
-            alt="Joel Luis"
-          />
-
-          <div>
-            <strong>Joel Luis Rockseat</strong>
-            <p>Curso GoStack Botcamp</p>
-          </div>
-
-          <FiChevronRight size={20} />
-        </a>
-
-        <a href="teste">
-          <img
-            src="https://avatars2.githubusercontent.com/u/72585274?s=460&u=00d8532d63251b36aaab5f81fd1c7422603fa031&v=4"
-            alt="Joel Luis"
-          />
-
-          <div>
-            <strong>Joel Luis Rockseat</strong>
-            <p>Curso GoStack Botcamp</p>
-          </div>
-
           <FiChevronRight size={20} />
         </a>
       </Repository>
