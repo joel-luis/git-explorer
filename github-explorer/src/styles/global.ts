@@ -10,8 +10,8 @@ export default createGlobalStyle`
 
 }
 
-body{
-    background: #FAFAF5 url(${background}) no-repeat 70% top;
+body {
+    background: #E5E5E5 url(${background}) no-repeat 70% top;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -20,11 +20,9 @@ body, input, button {
     font-family: Roboto, sans-serif
 
 }
-#root {
+#root{
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 20px;
 }
-
-
 `;
