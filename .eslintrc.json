@@ -34,10 +34,16 @@
         "react-hooks/exhaustive-deps": "warn",
         "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
         "import/prefer-default-export": "off",
-        "camelcase": "warn",
+        "camelcase": "off",
         "no-use-before-define": "off",
         "@typescript-eslint/ban-types": "off",
-        "react/jsx-wrap-multilines": "error", 
+        "react/jsx-wrap-multilines": "error",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+            {
+              "allowExpressions": true
+            }
+        ], 
         "prettier/prettier": ["error", {
             "endOfLine":"auto"
           }],

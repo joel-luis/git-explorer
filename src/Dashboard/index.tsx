@@ -1,41 +1,65 @@
-import React from 'react';
+import React, { useState, FormEvent } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 import logoImg from '../assets/logo.svg';
-import { Title, Form, Repository } from './styled';
+import { Title, Form, Repositories } from './styled';
+import api from '../services/api';
+
+interface Repository {
+  full_name: string;
+  description: string;
+  owner: {
+    login: string;
+    avatar_url: string;
+  };
+}
 
 const Dashboard: React.FC = () => {
+  const [newRepo, setNewRepo] = useState('');
+  const [repositories, setRepositories] = useState<Repository[]>([]);
+
+  async function handleAddRepository(
+    event: FormEvent<HTMLFormElement>,
+  ): Promise<void> {
+    event.preventDefault();
+    console.log(newRepo);
+
+    const response = await api.get(`repos/${newRepo}`);
+
+    const repository = response.data;
+
+    setRepositories([...repositories, repository]);
+    setNewRepo('');
+  }
+
   return (
-    // eslint-disable-next-line react/jsx-wrap-multilines
     <>
       <img src={logoImg} alt="GitHub Explorer" />
       <Title>Explore repositórios no Github</Title>
 
-      <Form>
-        <input placeholder="Digite o nome do repositório" />
+      <Form onSubmit={handleAddRepository}>
+        <input
+          value={newRepo}
+          onChange={e => setNewRepo(e.target.value)}
+          placeholder="Digite o nome do repositório"
+        />
         <button type="submit">Pequisar</button>
       </Form>
 
-      <Repository>
-        <a href="teste">
-          <img
-            src="https://avatars2.githubusercontent.com/u/72585274?s=460&u=00d8532d63251b36aaab5f81fd1c7422603fa031&v=4"
-            alt="Joel Luis"
-          />
-        </a>
-
-        <div>
-          <strong>Joel Luis Rockseat</strong>
-          <p>Curso GoStack Botcamp</p>
-        </div>
-        <FiChevronRight size={20} />
-        <a href="teste">
-          <img
-            src="https://avatars2.githubusercontent.com/u/72585274?s=460&u=00d8532d63251b36aaab5f81fd1c7422603fa031&v=4"
-            alt="Joel Luis"
-          />
-          <FiChevronRight size={20} />
-        </a>
-      </Repository>
+      <Repositories>
+        {repositories.map(repository => (
+          <a key={repository.full_name} href="teste">
+            <img
+              src={repository.owner.avatar_url}
+              alt={repository.owner.login}
+            />
+            <div>
+              <strong>{repository.full_name}</strong>
+              <p>{repository.description}</p>
+            </div>
+            <FiChevronRight size={20} />
+          </a>
+        ))}
+      </Repositories>
     </>
   );
 };
