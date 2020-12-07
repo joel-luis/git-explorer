@@ -77,12 +77,12 @@ export const RepositoryInfo = styled.section`
 
 export const Issues = styled.div`
   margin-top: 80px;
+
   a {
     background: #fff;
     border-radius: 5px;
     width: 100%;
     padding: 24px;
-    display: block;
     text-decoration: none;
     display: flex;
     align-items: center;
